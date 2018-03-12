@@ -10,49 +10,30 @@ var card4 = new Card('King', 4);
 
 var card_array = [card1,card2,card3,card4];
 
-// console.log(card1.name);
-// console.log('yo');
-
-var cardId = parseInt(prompt("please enter id of card:"));
-var cardId2 = parseInt(prompt("please enter id of card:"));
-
-// console.log(getName(card_array, cardId));
-if (getName(card_array, cardId) == getName(card_array, cardId2)) {
-  console.log("it's a match!")
-}
-
-// if (cardId == cardId2) {
-//
-// }
-
-// console.log(cardId);
-//
-//   card_array.forEach(function(card) {
-//   console.log(card.name)
-//
-//
-//   });
-
-  // if (id == card_array[0])
-
-
-
-
-
-
-// if card 1 has same name as card 2 then its a match and fli the card
-
 function getName(card_array, cardId) {
   var name;
+
   card_array.forEach(function(card) {
-    console.log(cardId)
     if (card.id == cardId) {
-      console.log('hey');
       name = card.name;
-      console.log('hey22');
-    } else {
-      console.log('hey else');
     }
   });
   return name;
 }
+
+
+
+
+
+$(document).ready(function() {
+  var cardId1 = parseInt(prompt("please enter id of card:"));
+  var cardId2 = parseInt(prompt("please enter id of card:"));
+  var name1 = getName(card_array, cardId1)
+  var name2 = getName(card_array, cardId2)
+
+  if (name1 == name2) {
+    alert("it's a match!");
+    $('#' + cardId1).text(name1);
+    $('#' + cardId2).text(name2);
+  }
+});
